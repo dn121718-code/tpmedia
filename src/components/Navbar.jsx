@@ -36,7 +36,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <img src="/src/assests/logo.png" alt="Tamil Pasanga Media" className="h-10 w-10 object-contain group-hover:rotate-12 transition-transform duration-300" />
+            <img src="/assets/logo.png" alt="Tamil Pasanga Media" className="h-10 w-10 object-contain group-hover:rotate-12 transition-transform duration-300" />
             <span className="text-xl font-outfit font-extrabold tracking-tighter text-white group-hover:text-racing-red transition-colors duration-300 uppercase">
               Tamil <span className="text-racing-red italic">Pasanga</span> Media
             </span>

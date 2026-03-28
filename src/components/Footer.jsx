@@ -12,7 +12,7 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="md:col-span-2">
             <Link to="/" className="flex items-center gap-3 mb-6 group">
-              <img src="/src/assests/logo.png" alt="Tamil Pasanga Media" className="h-10 w-10 object-contain group-hover:rotate-12 transition-transform duration-300" />
+              <img src="/assets/logo.png" alt="Tamil Pasanga Media" className="h-10 w-10 object-contain group-hover:rotate-12 transition-transform duration-300" />
               <span className="text-2xl font-outfit font-extrabold tracking-tighter text-white uppercase italic">
                 Tamil <span className="text-racing-red">Pasanga</span> Media
               </span>

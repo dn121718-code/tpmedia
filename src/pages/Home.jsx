@@ -36,7 +36,7 @@ const Home = () => {
         {/* Video or Image Fallback */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/src/assests/TP SG 1.jpg" 
+            src="/assets/TP SG 1.jpg" 
             alt="Hero Background" 
             className="w-full h-full object-cover opacity-60 scale-110 animate-pulse-slow transition-transform duration-[10s]"
           />
