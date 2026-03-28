@@ -6,15 +6,15 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const images = [
-    { id: 1, src: "/assets/TP SG 1.jpg" },
-    { id: 2, src: "/assets/TP SG 2.jpg" },
+    { id: 1, src: "/assets/TP SG 1.png" },
+    { id: 2, src: "/assets/TP SG 2.png" },
     { id: 3, src: "/assets/TPPVT 13.png" },
     { id: 4, src: "/assets/TPPVT 14.png" },
     { id: 5, src: "/assets/de1-mas.png" },
     { id: 6, src: "/assets/de2-mas.png" },
-    { id: 7, src: "/assets/21212.jpg" },
-    { id: 8, src: "/assets/23212.jpg" },
-    { id: 9, src: "/assets/32121.jpg" },
+    { id: 7, src: "/assets/21212.png" },
+    { id: 8, src: "/assets/23212.png" },
+    { id: 9, src: "/assets/32121.png" },
   ];
 
   return (
