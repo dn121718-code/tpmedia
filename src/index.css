@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --racing-red: #E60000;
+  --racing-dark: #B30000;
+  --bg-black: #0A0A0A;
+  --card-gray: #1A1A1A;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    cursor: none; /* Hide default cursor */
+  }
+
+  body {
+    @apply bg-brand-black text-brand-gray-100 font-inter;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-outfit font-bold tracking-tight;
+  }
+
+  /* Custom Selection */
+  ::selection {
+    @apply bg-racing-red text-white;
+  }
+}
+
+@layer components {
+  .glass-nav {
+    @apply bg-brand-black/90 backdrop-blur-xl border-b border-white/5;
+  }
+
+  .btn-primary {
+    @apply px-8 py-3 bg-racing-red text-white font-black rounded-sm 
+           transition-all duration-500 ease-out hover:bg-racing-dark hover:scale-110 active:scale-95
+           uppercase tracking-tighter italic;
+  }
+
+  .btn-outline {
+    @apply px-8 py-3 border-2 border-brand-gray-600 text-white font-black rounded-sm 
+           transition-all duration-500 ease-out hover:border-racing-red hover:text-racing-red
+           uppercase tracking-tighter italic;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-brand-gray-600;
+  }
+}
+
+/* Custom Animated Cursor - Refined Lens Style */
+.custom-cursor-dot {
+  width: 4px;
+  height: 4px;
+  background-color: var(--racing-red);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+}
+
+.custom-cursor-outline {
+  width: 24px;
+  height: 24px;
+  border: 1px dashed rgba(230, 0, 0, 0.6);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  animation: cursorRotate 4s linear infinite;
+}
+
+@keyframes cursorRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Cinematic reveal animations */
+.char-reveal {
+  display: inline-block;
+  overflow: hidden;
+}
+
+/* Hide scrollbar but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Liquid Smooth Hover Effects */
+.hover-liquid {
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.hover-liquid:hover {
+  transform: scale(1.02);
+}
