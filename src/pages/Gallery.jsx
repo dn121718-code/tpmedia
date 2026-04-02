@@ -4,18 +4,42 @@ import { X, Maximize2, Camera } from 'lucide-react';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const categories = ["All", "General", "March Public Convoy"];
 
   const images = [
-    { id: 1, src: "/assets/TP SG 1.png" },
-    { id: 2, src: "/assets/TP SG 2.png" },
-    { id: 3, src: "/assets/TPPVT 13.png" },
-    { id: 4, src: "/assets/TPPVT 14.png" },
-    { id: 5, src: "/assets/de1-mas.png" },
-    { id: 6, src: "/assets/de2-mas.png" },
-    { id: 7, src: "/assets/21212.png" },
-    { id: 8, src: "/assets/23212.png" },
-    { id: 9, src: "/assets/32121.png" },
+    { id: 1, src: "/assets/TP SG 1.png", category: "General" },
+    { id: 2, src: "/assets/TP SG 2.png", category: "General" },
+    { id: 3, src: "/assets/TPPVT 13.png", category: "General" },
+    { id: 4, src: "/assets/TPPVT 14.png", category: "General" },
+    { id: 5, src: "/assets/de1-mas.png", category: "General" },
+    { id: 6, src: "/assets/de2-mas.png", category: "General" },
+    { id: 7, src: "/assets/21212.png", category: "General" },
+    { id: 8, src: "/assets/23212.png", category: "General" },
+    { id: 9, src: "/assets/32121.png", category: "General" },
+    { id: 10, src: "/assets/1.jpg", category: "March Public Convoy", caption: "Covered by TP Media on March Public Convoy" },
+    { id: 11, src: "/assets/2.jpg", category: "March Public Convoy", caption: "Covered by TP Media on March Public Convoy" },
+    { id: 12, src: "/assets/3.jpg", category: "March Public Convoy", caption: "Covered by TP Media on March Public Convoy" },
+    { id: 13, src: "/assets/4.jpg", category: "March Public Convoy", caption: "Covered by TP Media on March Public Convoy" },
+    { id: 14, src: "/assets/5.jpg", category: "March Public Convoy", caption: "Covered by TP Media on March Public Convoy" },
+    { id: 15, src: "/assets/6.jpg", category: "March Public Convoy", caption: "Covered by TP Media on March Public Convoy" },
+    { id: 16, src: "/assets/7.jpg", category: "March Public Convoy", caption: "Covered by TP Media on March Public Convoy" },
+    { id: 17, src: "/assets/8.jpg", category: "March Public Convoy", caption: "Covered by TP Media on March Public Convoy" },
+    { id: 18, src: "/assets/9.jpg", category: "March Public Convoy", caption: "Covered by TP Media on March Public Convoy" },
+    { id: 19, src: "/assets/10.jpg", category: "March Public Convoy", caption: "Covered by TP Media on March Public Convoy" },
+    { id: 20, src: "/assets/11.jpg", category: "March Public Convoy", caption: "Covered by TP Media on March Public Convoy" },
+    { id: 21, src: "/assets/12.jpg", category: "March Public Convoy", caption: "Covered by TP Media on March Public Convoy" },
+    { id: 22, src: "/assets/13.jpg", category: "March Public Convoy", caption: "Covered by TP Media on March Public Convoy" },
+    { id: 23, src: "/assets/14.jpg", category: "March Public Convoy", caption: "Covered by TP Media on March Public Convoy" },
+    { id: 24, src: "/assets/15.jpg", category: "March Public Convoy", caption: "Covered by TP Media on March Public Convoy" },
+    { id: 25, src: "/assets/16.jpg", category: "March Public Convoy", caption: "Covered by TP Media on March Public Convoy" },
+    { id: 26, src: "/assets/17.jpg", category: "March Public Convoy", caption: "Covered by TP Media on March Public Convoy" },
   ];
+
+  const filteredImages = activeCategory === "All" 
+    ? images 
+    : images.filter(img => img.category === activeCategory);
 
   return (
     <div className="bg-brand-black pt-32 pb-24 min-h-screen">
@@ -31,17 +55,37 @@ const Gallery = () => {
           <p className="text-brand-gray-600 font-bold uppercase tracking-[0.3em] text-xs">Capturing the pure essence of the virtual road.</p>
         </div>
 
+        {/* Category Filter */}
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-8 py-3 font-black uppercase tracking-tighter italic transition-all duration-300 rounded-sm border ${
+                activeCategory === cat 
+                  ? "bg-racing-red border-racing-red text-white scale-110 shadow-lg shadow-racing-red/20" 
+                  : "bg-transparent border-white/10 text-brand-gray-600 hover:border-white/30 hover:text-white"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
         {/* Gallery Grid */}
         <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-          {images.map((image) => (
-            <motion.div 
-              key={image.id}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="relative group cursor-none overflow-hidden bg-brand-gray-900"
-              onClick={() => setSelectedImage(image)}
-            >
+          <AnimatePresence mode="popLayout">
+            {filteredImages.map((image) => (
+              <motion.div 
+                key={image.id}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.4 }}
+                className="relative group cursor-none overflow-hidden bg-brand-gray-900"
+                onClick={() => setSelectedImage(image)}
+              >
               <img 
                 src={image.src} 
                 alt="Gallery Item" 
@@ -56,6 +100,7 @@ const Gallery = () => {
               </div>
             </motion.div>
           ))}
+          </AnimatePresence>
         </div>
 
         {/* Lightbox Modal */}
@@ -94,7 +139,9 @@ const Gallery = () => {
                       <Camera size={20} className="text-racing-red" />
                     </div>
                     <div>
-                      <h4 className="text-white font-black uppercase tracking-tighter italic text-xl">CINEMATIC FRAME #0{selectedImage.id}</h4>
+                      <h4 className="text-white font-black uppercase tracking-tighter italic text-xl">
+                        {selectedImage.caption || `CINEMATIC FRAME #0${selectedImage.id}`}
+                      </h4>
                       <p className="text-brand-gray-600 text-xs font-bold uppercase tracking-widest mt-1">TAMIL PASANGA MEDIA OFFICIAL PRODUCTION</p>
                     </div>
                   </div>

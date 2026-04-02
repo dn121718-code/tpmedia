@@ -171,6 +171,61 @@ const Home = () => {
         </div>
       </section>
 
+      {/* March Public Convoy Footage Section */}
+      <section className="py-24 bg-brand-black overflow-hidden">
+        <div className="section-container mb-12">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="border-l-4 border-racing-red pl-6"
+          >
+            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-2">
+              MARCH PUBLIC <span className="text-racing-red italic">CONVOY</span>
+            </h2>
+            <p className="text-brand-gray-600 font-bold uppercase tracking-[0.2em] text-xs">
+              Footage by TP Media In March Public Convoy of Tamil Pasanga VTC
+            </p>
+          </motion.div>
+        </div>
+
+        {/* 3 Large Images Grid */}
+        <div className="section-container">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {[1, 2, 3].map((num) => (
+              <motion.div
+                key={num}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: num * 0.2 }}
+                className="aspect-video bg-brand-gray-900 overflow-hidden border border-white/5 group relative"
+              >
+                <img 
+                  src={`/assets/${num}.jpg`} 
+                  alt={`Convoy Highlight ${num}`}
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                   <p className="text-white font-black uppercase tracking-tighter italic text-lg">MARCH CONVOY FRAME #{num}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex justify-center"
+          >
+            <Link to="/gallery" className="btn-outline flex items-center gap-3 hover:bg-white hover:text-brand-black transition-all duration-500">
+              VIEW FULL GALLERY <ArrowRight size={20} />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-32 relative overflow-hidden text-center">
         <div className="absolute inset-0 z-0">
