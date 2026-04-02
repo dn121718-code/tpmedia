@@ -35,6 +35,9 @@ const Gallery = () => {
     { id: 24, src: "/assets/15.jpg", category: "March Public Convoy", caption: "Covered by TP Media on March Public Convoy" },
     { id: 25, src: "/assets/16.jpg", category: "March Public Convoy", caption: "Covered by TP Media on March Public Convoy" },
     { id: 26, src: "/assets/17.jpg", category: "March Public Convoy", caption: "Covered by TP Media on March Public Convoy" },
+    { id: 27, src: "/assets/32.jpg", category: "March Public Convoy", caption: "Covered by TP Media on March Public Convoy" },
+    { id: 28, src: "/assets/37.jpg", category: "March Public Convoy", caption: "Covered by TP Media on March Public Convoy" },
+    { id: 29, src: "/assets/EVENT_IS_SUPERVISED_4.jpg", category: "March Public Convoy", caption: "Covered by TP Media on March Public Convoy" },
   ];
 
   const filteredImages = activeCategory === "All" 
