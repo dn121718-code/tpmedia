@@ -33,16 +33,16 @@ const Home = () => {
         {/* Background Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-brand-black/40 via-brand-black/70 to-brand-black z-10" />
         
-        {/* Video or Image Fallback */}
+        {/* Parallax Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
             src="/assets/TP SG 1.png" 
             alt="Hero Background" 
-            className="w-full h-full object-cover opacity-60 scale-110 animate-pulse-slow transition-transform duration-[10s]"
+            className="w-full h-full object-cover opacity-60 scale-105 animate-[pulse_6s_ease-in-out_infinite] transition-transform duration-[10s]"
           />
         </div>
 
-        <div className="section-container relative z-20 text-center">
+        <div className="section-container relative z-20 text-center px-4 sm:px-6 lg:px-8 max-w-6xl">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -53,9 +53,9 @@ const Home = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="inline-flex items-center gap-2 px-6 py-2 bg-racing-red/10 border border-racing-red/20 rounded-full mb-10 text-racing-red"
+              className="inline-flex items-center gap-2 px-6 py-2 bg-racing-red/10 border border-racing-red/20 rounded-full mb-8 text-racing-red"
             >
-              <span className="text-xs font-black uppercase tracking-[0.3em] italic">PROUD TEAM OF TAMIL PASANGA VTC</span>
+              <span className="text-[10px] sm:text-xs font-black uppercase tracking-[0.3em] italic">PROUD TEAM OF TAMIL PASANGA VTC</span>
             </motion.div>
 
             {/* Cinematic Animated Title */}
@@ -63,7 +63,7 @@ const Home = () => {
               variants={sentence}
               initial="hidden"
               animate="visible"
-              className="text-4xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter mb-4 leading-none"
+              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter mb-4 leading-none select-none text-white break-words"
             >
               {titleText.split("").map((char, index) => (
                 <motion.span key={index} variants={letter} className="inline-block">
@@ -76,7 +76,7 @@ const Home = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1.8, duration: 1, ease: "easeOut" }}
-              className="text-4xl sm:text-6xl md:text-8xl font-black italic text-racing-red tracking-tighter mb-12"
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black italic text-racing-red tracking-tighter mb-10 select-none"
             >
               {subTitleText}
             </motion.h2>
@@ -85,22 +85,22 @@ const Home = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 2.5, duration: 1 }}
-              className="text-lg md:text-xl text-brand-gray-100 max-w-2xl mx-auto mb-10 font-bold uppercase tracking-[0.2em] opacity-60"
+              className="text-sm sm:text-base md:text-lg text-brand-gray-100 max-w-2xl mx-auto mb-10 font-bold uppercase tracking-[0.2em] opacity-65 leading-relaxed"
             >
-              TAMIL PASANGA MEDIA: DEFINING VIRTUAL <span className="text-white">CINEMA</span>
+              TAMIL PASANGA MEDIA: DEFINING VIRTUAL <span className="text-white border-b-2 border-racing-red pb-1">CINEMA</span>
             </motion.p>
 
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 3, duration: 1 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-6"
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
             >
-              <Link to="/gallery" className="btn-primary flex items-center gap-2 group">
-                EXPLORE WORK <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+              <Link to="/gallery" className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2 group">
+                EXPLORE WORK <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link to="/contact" className="btn-outline flex items-center gap-2">
-                HIRE THE CREW <Video size={20} />
+              <Link to="/contact" className="btn-outline w-full sm:w-auto flex items-center justify-center gap-2">
+                HIRE THE CREW <Video size={18} />
               </Link>
             </motion.div>
           </motion.div>
@@ -111,7 +111,7 @@ const Home = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 4, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20"
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 hidden md:block"
         >
           <div className="w-6 h-10 border-2 border-brand-gray-600 rounded-full flex justify-center p-1">
             <motion.div 
@@ -124,10 +124,10 @@ const Home = () => {
       </section>
 
       {/* Quick Services Section */}
-      <section className="py-24 bg-brand-black border-y border-white/5">
-        <div className="section-container">
+      <section className="py-24 bg-brand-black border-y border-white/5 relative">
+        <div className="section-container px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl uppercase font-black tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl uppercase font-black tracking-tight mb-4 text-white">
               CRAFTING <span className="text-racing-red italic">MOTION</span>
             </h2>
             <p className="text-brand-gray-600 font-bold uppercase tracking-[0.2em] text-xs">A New Level of Virtual Media</p>
@@ -153,34 +153,77 @@ const Home = () => {
             ].map((service, index) => (
               <motion.div 
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-                whileHover={{ y: -10 }}
-                className="bg-brand-gray-900 p-10 border border-white/5 hover:border-racing-red/20 transition-all duration-300"
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ delay: index * 0.15, duration: 0.6 }}
+                whileHover={{ y: -8, borderColor: 'rgba(230,0,0,0.3)' }}
+                className="bg-brand-gray-900 p-8 sm:p-10 border border-white/5 hover:border-racing-red/20 transition-all duration-300 rounded-sm flex flex-col justify-between"
               >
-                <div className="mb-6">{service.icon}</div>
-                <h3 className="text-2xl font-black uppercase mb-4 tracking-tighter italic">{service.title}</h3>
-                <p className="text-brand-gray-600 leading-relaxed font-bold uppercase text-xs tracking-widest">
-                  {service.desc}
-                </p>
+                <div>
+                  <div className="mb-6 bg-brand-black w-fit p-4 rounded-sm border border-white/5 group-hover:bg-racing-red/10">{service.icon}</div>
+                  <h3 className="text-xl sm:text-2xl font-black uppercase mb-4 tracking-tighter italic text-white">{service.title}</h3>
+                  <p className="text-brand-gray-600 leading-relaxed font-bold uppercase text-[10px] sm:text-xs tracking-widest">
+                    {service.desc}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Cinematic Theater Section */}
+      <section className="py-24 bg-brand-black/40 border-b border-white/5 relative">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-racing-red/5 rounded-full blur-[120px] pointer-events-none" />
+        
+        <div className="section-container relative z-10 px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight mb-4 text-white"
+            >
+              CINEMATIC <span className="text-racing-red italic">SHOWCASE</span>
+            </motion.h2>
+            <p className="text-brand-gray-600 font-bold uppercase tracking-[0.2em] text-xs">Experience the adrenaline of the road in high definition</p>
+          </div>
+
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative aspect-video max-w-5xl mx-auto bg-brand-gray-900 border border-white/10 shadow-2xl rounded-sm overflow-hidden group shadow-racing-red/5"
+          >
+            <iframe 
+              src="https://www.youtube.com/embed/S8KQn2lPbO0"
+              title="Tamil Pasanga VTC Cinematic Showcase"
+              className="w-full h-full border-0 absolute inset-0 z-10"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowFullScreen
+            />
+            {/* Visual Glassmorphic Frame Borders */}
+            <div className="absolute inset-0 border border-white/10 pointer-events-none z-20 group-hover:border-racing-red/20 transition-colors duration-500" />
+            <div className="absolute top-4 left-4 z-20 bg-brand-black/90 px-4 py-2 border border-white/5 rounded-sm flex items-center gap-2">
+              <span className="w-2 h-2 bg-racing-red rounded-full animate-ping" />
+              <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-white italic">OFFICIAL STREAM / PROMO</span>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* March Public Convoy Footage Section */}
-      <section className="py-24 bg-brand-black overflow-hidden">
-        <div className="section-container mb-12">
+      <section className="py-24 bg-brand-black overflow-hidden relative">
+        <div className="section-container mb-12 px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="border-l-4 border-racing-red pl-6"
           >
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-2">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter mb-2 text-white">
               MARCH PUBLIC <span className="text-racing-red italic">CONVOY</span>
             </h2>
             <p className="text-brand-gray-600 font-bold uppercase tracking-[0.2em] text-xs">
@@ -190,24 +233,24 @@ const Home = () => {
         </div>
 
         {/* 3 Large Images Grid */}
-        <div className="section-container">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="section-container px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             {[1, 2, 3].map((num) => (
               <motion.div
                 key={num}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: num * 0.2 }}
-                className="aspect-video bg-brand-gray-900 overflow-hidden border border-white/5 group relative"
+                transition={{ delay: num * 0.15, duration: 0.6 }}
+                className="aspect-video bg-brand-gray-900 overflow-hidden border border-white/5 group relative rounded-sm shadow-lg hover:shadow-racing-red/5 hover:border-racing-red/20 transition-all duration-300 cursor-pointer"
               >
                 <img 
                   src={`/assets/${num}.jpg`} 
                   alt={`Convoy Highlight ${num}`}
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 group-hover:brightness-75"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                   <p className="text-white font-black uppercase tracking-tighter italic text-lg">MARCH CONVOY FRAME #{num}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-black/90 via-brand-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                   <p className="text-white font-black uppercase tracking-tighter italic text-sm sm:text-base">MARCH CONVOY FRAME #{num}</p>
                 </div>
               </motion.div>
             ))}
@@ -227,21 +270,22 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 relative overflow-hidden text-center">
+      <section className="py-32 relative overflow-hidden text-center flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <img 
             src="/assets/TP SG 2.png" 
             alt="CTA Background" 
-            className="w-full h-full object-cover opacity-20 grayscale brightness-50"
+            className="w-full h-full object-cover opacity-15 grayscale brightness-50"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-brand-black" />
         </div>
-        <div className="section-container relative z-10">
-          <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter mb-8 leading-tight">
+        <div className="section-container relative z-10 px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tighter mb-8 leading-tight text-white select-none">
             ELEVATE <span className="text-racing-red">EVERY</span> <br /> 
             <span className="italic">VIRTUAL FRAME</span>
           </h2>
           <Link to="/contact" className="btn-primary inline-flex items-center gap-3 transition-all duration-500 hover:tracking-[0.2em]">
-            START A PROJECT <MessageCircle size={24} />
+            START A PROJECT <MessageCircle size={22} />
           </Link>
         </div>
       </section>
